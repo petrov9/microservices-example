@@ -1,6 +1,4 @@
 spring:
-  application:
-    name: license-service
   profiles:
     active: default
   cloud:

@@ -7,7 +7,7 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
 @SpringBootApplication
 @EnableCircuitBreaker
-//@EnableEurekaClient
+@EnableEurekaClient
 public class LicenseApp {
     public static void main(String[] args) {
         SpringApplication.run(LicenseApp.class, args);
