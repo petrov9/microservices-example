@@ -1,6 +1,6 @@
 spring:
   application:
-    name: license-service
+    name: checker-service
   profiles:
     active: default
   cloud:

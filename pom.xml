@@ -17,8 +17,9 @@
     <modules>
         <module>eureka</module>
         <module>gateway</module>
-        <module>license</module>
         <module>config-server</module>
+        <module>license</module>
+        <module>checker</module>
     </modules>
 
     <build>

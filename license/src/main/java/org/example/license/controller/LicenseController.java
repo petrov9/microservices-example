@@ -4,6 +4,7 @@ import java.util.Map;
 import java.util.Random;
 import java.util.concurrent.ConcurrentHashMap;
 import javax.annotation.security.RolesAllowed;
+import org.example.license.client.CheckerRestTemplateClient;
 import org.example.license.config.ServiceConfig;
 import org.example.license.model.License;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +23,9 @@ public class LicenseController {
 
     @Autowired
     private ServiceConfig config;
+
+    @Autowired
+    private CheckerRestTemplateClient checkerClient;
 
     @GetMapping
     /*@HystrixCommand(fallbackMethod = "defaultGetMessage",
@@ -52,6 +56,11 @@ public class LicenseController {
     public String addLicense(@RequestBody License license) {
         storage.put(license.getId(), license);
         return "Successfully put license: " + license;
+    }
+
+    @GetMapping(value = "/check/{license}")
+    public String checkLicense(@PathVariable String license) {
+        return checkerClient.checkLicense(license);
     }
 
     public String defaultGetMessage() {
