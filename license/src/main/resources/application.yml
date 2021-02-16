@@ -6,3 +6,17 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
+
+keycloak:
+  realm: "microservices-example-realm"
+  auth-server-url: "http://localhost:9080/auth"
+  ssl-required: "external"
+  resource: "ostock"
+  credentials:
+    secret: "24343ee5-f121-403d-b46f-2e279a625787"
+  use-resource-role-mappings: true
+  bearer-only: true
+
+logging:
+  level:
+    org.keycloak: DEBUG

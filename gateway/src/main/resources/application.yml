@@ -1,6 +1,16 @@
 spring:
   application:
     name: gateway
+  cloud:
+    gateway:
+      routes:
+      - id: license-service
+        uri: lb://license-service
+        predicates:
+        - Path=/license/**
+        filters:
+        - RewritePath=/license/(?<path>.*), /$\{path}
+        - RemoveRequestHeader= Cookie, Set-Cookie
 
 server:
   port: 7856
@@ -9,10 +19,3 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
-
-zuul:
-  ignored-services: "*"
-
-  routes:
-    license-service: /license/**
-

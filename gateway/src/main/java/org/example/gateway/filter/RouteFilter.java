@@ -1,3 +1,4 @@
+/*
 package org.example.gateway.filter;
 
 import com.netflix.zuul.ZuulFilter;
@@ -32,7 +33,8 @@ import org.springframework.util.MultiValueMap;
 
 @Component
 @Slf4j
-/*TODO: It doesnt work like in example, why ??*/
+/*
+
 public class RouteFilter extends ZuulFilter {
 
     private ProxyRequestHelper helper = new ProxyRequestHelper();
@@ -196,3 +198,4 @@ public class RouteFilter extends ZuulFilter {
         }
     }
 }
+*/

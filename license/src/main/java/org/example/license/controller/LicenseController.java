@@ -3,6 +3,7 @@ package org.example.license.controller;
 import java.util.Map;
 import java.util.Random;
 import java.util.concurrent.ConcurrentHashMap;
+import javax.annotation.security.RolesAllowed;
 import org.example.license.config.ServiceConfig;
 import org.example.license.model.License;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,16 +35,19 @@ public class LicenseController {
         return config.getMessage();
     }
 
+    @RolesAllowed({"ADMIN", "USER"})
     @GetMapping(value = "v1/hello/{name}")
     public String helloMessagev1(@PathVariable String name) {
         return "Hello, " + name;
     }
 
+    @RolesAllowed({"ADMIN", "USER"})
     @GetMapping(value = "v2/hello/{name}")
     public String helloMessagev2(@PathVariable String name) {
         return "Como estas, " + name;
     }
 
+    @RolesAllowed({"ADMIN"})
     @PostMapping
     public String addLicense(@RequestBody License license) {
         storage.put(license.getId(), license);

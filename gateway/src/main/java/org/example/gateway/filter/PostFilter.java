@@ -1,3 +1,4 @@
+/*
 package org.example.gateway.filter;
 
 import com.netflix.zuul.ZuulFilter;
@@ -34,3 +35,4 @@ public class PostFilter extends ZuulFilter {
         return null;
     }
 }
+*/

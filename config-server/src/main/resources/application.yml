@@ -1,11 +1,21 @@
 server:
   port: 8888
 spring:
+  application:
+    name: config-server
+  profiles:
+    active:
+    - native
+
   cloud:
     config:
+      discovery:
+        enabled: false
       server:
-        git:
-          uri: https://github.com/petrov9/config-service/
-          searchPaths: license-service
-#        native:
-#          search-locations: file:///Users/Toxa/Desktop/spring-boot/spring-config-server/src/main/resources/config/license-service
+        encrypt:
+          enabled: false
+#        git:
+#          uri: https://github.com/petrov9/config-service/
+#          searchPaths: license-service
+        native:
+          search-locations: classpath:/config
