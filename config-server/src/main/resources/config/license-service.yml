@@ -17,6 +17,17 @@ spring:
     validationQuery: "SELECT 1"
   database:
     driverClassName: "org.postgresql.Driver"
+  cloud:
+    stream:
+      bindings:
+        input:
+          destination: checkerChangeTopic
+          content-type: application/json
+          group: licensingGroup
+      kafka:
+        binder:
+          zkNodes: localhost
+          brokers: localhost
 
 my:
   message: "Hah, it's work!!!"
