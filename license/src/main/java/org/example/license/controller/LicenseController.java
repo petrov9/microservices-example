@@ -60,7 +60,10 @@ public class LicenseController {
 
     @GetMapping(value = "/check/{license}")
     public String checkLicense(@PathVariable String license) {
-        return checkerClient.checkLicense(license);
+        Boolean isExpired = checkerClient.checkLicense(license);
+
+        return isExpired ? String.format("Лицензия %s не просрочена", license) :
+            String.format("Лицензия %s просрочена, срочно обновите ее", license);
     }
 
     public String defaultGetMessage() {

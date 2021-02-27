@@ -18,9 +18,7 @@ public class CheckerController {
     @RolesAllowed({"ADMIN"})
     @GetMapping("/check/license/{license}")
     public String checkLicense(@PathVariable String license) {
-        boolean isGoodLicense = checkerService.checkLicense(license);
-
-        return isGoodLicense ? String.format("Лицензия %s не просрочена", license) :
-            String.format("Лицензия %s просрочена, срочно обновите ее", license);
+        boolean isExpired = checkerService.checkLicense(license);
+        return String.valueOf(isExpired);
     }
 }
