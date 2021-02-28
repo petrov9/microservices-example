@@ -2,14 +2,12 @@ package org.example.license;
 
 import lombok.extern.slf4j.Slf4j;
 import org.example.license.config.ServiceConfig;
-import org.example.license.model.CheckerChangeModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.cloud.stream.annotation.EnableBinding;
-import org.springframework.cloud.stream.annotation.StreamListener;
 import org.springframework.cloud.stream.messaging.Sink;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.redis.connection.RedisStandaloneConfiguration;
@@ -28,11 +26,6 @@ public class LicenseApp {
 
     public static void main(String[] args) {
         SpringApplication.run(LicenseApp.class, args);
-    }
-
-    @StreamListener(Sink.INPUT)
-    public void loggerSink(CheckerChangeModel model) {
-        log.info("Received an {} event from checker service for license {}", model.getAction(), model.getLicense());
     }
 
     /*Have to be created in config package, but according to book*/
