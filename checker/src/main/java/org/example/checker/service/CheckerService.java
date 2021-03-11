@@ -14,7 +14,7 @@ public class CheckerService {
 
     public boolean checkLicense(String license) {
         boolean isExpired = Math.random() > 0.5;
-        sourceBean.publishCheckerChange("check", license);
+//        sourceBean.publishCheckerChange("check", license);
 
         return isExpired;
     }
