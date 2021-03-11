@@ -57,4 +57,4 @@ logging:
     path: ./log
 
   level:
-    root: DEBUG
+    root: INFO

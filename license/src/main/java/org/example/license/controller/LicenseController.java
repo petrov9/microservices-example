@@ -39,6 +39,11 @@ public class LicenseController {
         return config.getMessage();
     }
 
+    @GetMapping(value = "test")
+    public String test() {
+        return "It's ok, everything work";
+    }
+
     @RolesAllowed({"ADMIN", "USER"})
     @GetMapping(value = "v1/hello/{name}")
     public String helloMessagev1(@PathVariable String name) {
